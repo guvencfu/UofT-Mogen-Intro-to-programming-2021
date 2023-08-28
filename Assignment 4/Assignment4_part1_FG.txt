@@ -1,0 +1,9 @@
+Assignment 4, Part 1 - Furkan Guvenc, 999800979
+
+A) Y[A-P](R|L)[0-9]{3}(W|C)
+B) substr(yeast_gene,7,7) == "C"
+C) AAGG(G|T)T
+D) GG(A|C|G|T){3}TA(A|C|G|T)CGG
+E) Regex matches CGG, then (A or C or G or T) matched three times, matches a T, then 
+(A or C or G or T), then (A or G), then (A or C or G or T)
+matched 8-12 times, CGG at the end of the string.

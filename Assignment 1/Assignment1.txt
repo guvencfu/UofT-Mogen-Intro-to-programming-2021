@@ -1,0 +1,107 @@
+Ls
+Programming for Biologists (MMG1012H)
+
+Assignment 1
+10 Points
+
+Assignment goals:
+•	Get practice using the Unix shell environment for simple commands.
+•	Ensure you have R installed properly and can run R commands.
+
+Learning to use the Unix command line
+There are a few key commands that will be helpful in getting around the command line on your computer. Below is a short summary of the key points, or you find a full tutorial at http://www.ee.surrey.ac.uk/Teaching/Unix/index.html
+
+(1) Opening a Terminal:
+Open a terminal using instructions provided in class:
+•	macOS (apple) users use the built in “Terminal” app
+•	Locate the terminal application on your computer
+(“Terminal” on OS X, under “Applications/Utilities”)
+•	Start it
+•	Windows 10 64-bit users can use the Ubuntu Linux bash shell feature
+•	Control Panel > Programs > Turn Windows Features On Or Off
+•	Enable “Windows Subsystem for Linux”, then click “OK”
+•	Click “Restart now” when prompted to restart your computer
+•	Install the Ubuntu app from the App Store and run it
+•	Your windows files are in /mnt/c/Users/<yourname>/
+•	Other windows users: Install Cygwin
+•	http://www.cygwin.com/ (32- or 64-bit)
+
+
+(2) Creating new directories (folders):
+
+mkdir myFolder
+
+(3) Changing directories (folders): 
+
+cd myFolder	(moves into myFolder) 
+cd ..		(moves up one level out of the current folder) 
+
+(4) Listing the files in your current folder: 
+
+ls
+
+(4) Copying files:
+
+cp sourceFile destinationFile
+
+(5) Copying folders:
+
+cp -r sourceFolder destinationFolder
+
+
+(6) Moving files:
+
+mv sourceFile destinationFile
+
+This results in the original "destinationFile" being REMOVED if it existed.
+
+(7) Removing files:
+
+rm fileName
+
+In Unix a file removed is GONE. You CANNOT get it back. There is no "Recycle bin".
+REMEMBER: *ALWAYS* back up your code. (use e.g. cp or dropbox)
+
+(8) Creating archive files: We will sometimes need to create a single archive (zip) file that contains a whole folder with many files. To create a gzipped tar file named “filename.tar.gz” from a folder named “myFolder”, type the following: 
+
+tar –czf filename.tar.gz myFolder
+
+(9) Unzipping archive files: To unzip a gzipped .tar file named “filename.tar.gz”, type the following: 
+
+tar –xzf filename.tar.gz
+
+Working with real data
+ClinVar is a public database about genetic variants and their relationship to human health. Download this ClinVar data file and save it to your computer:
+ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/gene_condition_source_id
+
+Note: Your web browser may save the file as gene_condition_source_id.txt.  Also, you can try to use the wget command on the command line to save this file without using a web browser.
+
+For the following questions, write short answers in a text file and save in your assignment directory. Include the Unix command you used to find this information, where applicable. Remember, there are often many ways to solve the same problem using command line tools.
+
+1.	 (2 points) How many data columns in this file and what does each column mean? (short answer – no Unix command needed)
+2.	 (1 point) How many unique terms in each column? (Note: include all Unix commands, even though they are similar to each other)
+3.	 (1 point) How many lines contain the term “cancer”?
+4.	 (1 point) How many unique types of cancer are listed?
+5.	 (1 point) How many unique phenotypes are linked to the TP53 gene?
+6.	 (2 points) This section uses the ClinVar database. In class, we used the Human Phenotype Ontology database. These are two different databases with some overlap in content. How do the TP53-linked phenotypes you find from ClinVar compare to the phenotypes linked to TP53 that we examined in the in-class lab, derived from the Human Phenotype Ontology? (for example, are they the same or different? Which database would you use if you needed to look up human phenotypes in your job?) (short answer, no code needed)
+
+Practice with R (2 points)
+
+Write a simple R program:
+
+1.	Open the R application
+2.	Make a folder (directory as it’s called in Unix) where you would like to save your work "mkdir <your name>-Assignment1"
+3.	Copy the “gene_condition_source_id.txt” file into this directory
+4.	Change the R working directory to "<your name>-Assignment1"
+5.	Execute the following two commands, one by one:
+v = read.table("gene_condition_source_id.txt", header=TRUE, sep="\t", fill=TRUE, comment.char = "", quote = "")
+
+write.table(v$DiseaseName, file="assignment1_output.txt", sep="\t", quote=FALSE)
+
+Submitting your assignment
+Once you’ve successfully executed the commands and the assignment1_output.txt file appears in your folder, create an archive file that consists of all files in your “<your name>-Assignment1” folder. To do this, from the Unix command line, you should move up one directory from your assignment folder and type:
+
+tar –czf assignment1.tar.gz <your name>-Assignment1
+
+When you’re finished, upload the assignment1.tar.gz file into Quercus.
+You only need to upload your single .tar.gz file that contains all your answers and output for this assignment. You’re finished with Assignment 1!
