@@ -1,0 +1,64 @@
+Programming for Biologists (MMG1002H)
+
+Assignment 2
+10 Points
+
+Assignment goals:
+•	Practice R concepts learned in class
+•	Practice writing your own R programs
+
+Part I: Editing and running R scripts to process sequence data (2 points)
+Your goal is to edit and run an R script that we’ve mostly written for you. Once you modify it correctly, this script will read in a DNA sequence from a file and perform some simple processing.
+(1) Download the process_sequence.r script from the course website 
+(2) Open the script using a text editor. Study the code, and guess what it will do to your gene sequence. Modify it so that it will load your sequence file (seq.fasta) (HINT: notice the fileName variable). Run it, and include the output in your assignment write-up.
+
+Part II: Debugging R scripts (2 points)
+Debug an R script that we’ve written (badly) for you. Find and fix all errors. Remember the best way to fix bugs is to start at the top and “Edit, Run, and Revise”.
+(1) Download the buggy_script.r script from the course website
+(2) Fix any bugs in the script until the R interpreter runs it without any warnings or errors. When it’s fixed, you should get the following output:
+
+this Seems to be ok
+6 
+AAAATTTT 
+------------------- 
+myemail.utoronto.ca 
+What’s going on here?
+
+Part III: Practice with numeric and string operators (2 points)
+(1) Create a “assignment2” folder and download the “stringnumber_practice.r” script from the course website
+
+(2) Fill in the code or answer the questions where requested. There are five total places where you modify the script or answer questions related to it.
+
+Part IV: Writing your first R program (4 points)
+Write a script that reads in an RNA sequence from a file, computes simple statistics on the sequence, translates the RNA sequence into the corresponding amino acid sequence, and outputs the result to a file.
+(1) To help you get started, we’ve written a skeleton R script for you (translate_sequence.r), which you can download.
+As well as the sequence file we will use for the assignment (assignment2_sequence.txt)
+
+(2) Open the script in a text editor and add the missing pieces that are described in the comments. Your script should do all of the following:
+a. Open the sequence file
+b. Read in the sequence
+c. Print the length of the sequence
+d. Get the coding portion of the sequence (bp 61-end)
+e. Fill in code that translates codons into amino acids, so that you get a complete amino acid sequence
+f. Print the final amino acid sequence to the output file
+
+HINT: here’s a reference table for the codons that appear in the (fake) example sequence:
+AUG Start 
+UUC (Phe/F) Phenylalanine 
+CUU (Leu/L) Leucine 
+CCA (Pro/P) Proline 
+ACC (Thr/T) Threonine 
+GAU (Asp/D) Aspartic acid 
+CGA (Arg/R) Arginine 
+UGA Stop
+
+Submitting your assignment
+When you’re finished with the assignment, make a report of any questions you answered plus any requested output, and gather the scripts that you modified. Place them all in a folder, and create a single archive file called assignment2.tar.gz. Remember, you’ll need to use a command like this:
+
+tar –czf assignment2.tar.gz <your name>-Assignment2
+
+You can also use zip or a different tool (on a mac press right-click on the folder and choose “compress”).
+
+When you’re finished, upload the assignment2.tar.gz file to quercus. You only need to upload your single file that contains all your answers and output for this assignment.
+
+You’re finished with Assignment 2!

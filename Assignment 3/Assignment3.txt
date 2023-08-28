@@ -1,0 +1,72 @@
+Programming for Biologists (MMG1002H)
+Assignment 3
+10 Points
+Assignment goals:
+Practice manipulating arrays.
+Become familiar with using conditional statements and loops.
+Practice reading in data from files, doing analysis, producing output.
+Part I: Analysis of ORF (open reading frame) length of yeast genes
+(1) Download a file containing all yeast genes and their chromosomal coordinates on the
+course website (yeast_orflist.txt)
+Open the file and look at how it’s formatted.
+(2) Write a script that does the following:
+a. Opens the file for reading and reads in the data
+b. Find the name of the shortest and longest gene and print it. For exercise, do it both
+using a for-loop, as well as using an R built-in function.
+Briefly describe what’s known about the functions of these genes? (HINT: you might find
+http://yeastgenome.org helpful for investigating the functions of the genes)
+c. Creates two output files, one called yeast_crickstrand_genes.txt and one called
+yeast_watsonstrand_genes.txt. Print out a list of genes that are encoded on the Crick
+strand to first file and genes that are encoded on the Watson strand to the second file.
+(HINT: the last letter in the ORF name, either W or C, tells you which strand the gene is
+encoded on)
+d. Compute and print the mean ORF length.
+Part II: Global analysis of yeast phenotypes and interactions
+(1) Download two files containing phenotype assignments of yeast genes
+(“phenotype_data.tab”) as well as interaction data for all yeast proteins
+(“yeast_interactions.txt”). Open the file and look at how they are formatted.
+This data was partly handcurated by people at the Saccharomyces Genome Database
+and partly stems from high-throughput experiments. (yeastgenome.org)
+(2) Write a script that does the following:
+a. Opens the phenotype file for reading.
+(HINT: use the “read.delim” function here. It’ll be easier to use the “as.is=T” option, and
+not have it read in as factors)
+Do note that this is a massive data file that contains data from many publications. Collect
+all the different papers (PMIDs) that contributed to this data, how many are there? (for
+the latter, can convert it back to factors)
+b. Collect all the genes that were considered essential (inviable) in any study. Do notethat some genes are inviable only in some, but not in other studies, we will consider any
+essential that were considered essential in any study.
+(HINT, this will be easiest using the gene names as names (named columns) in a list or
+data frame)
+c. Opens the interactions file and counts how many different other proteins a given
+protein interacts with. Here, we don’t care about the type of interaction, just whether an
+interaction between a given pair exists or not.
+(HINT: There are a number of ways to do it, one of which is to generate a large list. That
+list would consist of N named vectors, each named after a protein. Each vector, in turn,
+could have named columns, each named after an interaction partner of the given
+protein).
+(HINT2: since you’re dealing with a large file, it might be advisable to first just run your
+code on the first few hundred or so interactions, while you’re trying things out).
+d. Compute the number of interactors of all proteins whose genes are annotated as
+“inviable” and compare to the number of all interactors (viable and inviable). For
+instance, you could compare the average number of interactors or look at the
+distributions of this number in inviable vs. all proteins. What do you find?
+Part III:
+(1) Write a script that does the following:
+a. Read the go_slim_mapping.tab file into a data frame.
+b. Create a list with all ORFs that are annotated to cellular bud and print them
+(HINT: the go_slim_mapping.tab file contains GO curated annotations for “cellular
+compartment” (C), “biological process” (B) and “molecular function” (F). It usually has
+more than one term, which we can disregard here)
+Submitting your assignment
+When you’re finished with the assignment, make a report of any questions you answered
+plus any requested output, and gather the scripts that you modified. Place them all in a
+folder, and create a single archive file called assignment4.tar.gz. Remember, you’ll need
+to use a command like this:
+tar –czf assignment3.tar.gz <your name>-Assignment3
+When you’re finished, upload the assignment3.tar.gz file to the course website.
+You only need to upload your single .tar.gz file that contains all your answers and
+output for this assignment.
+Or, if you prefer to use zip rather than tar:
+zip –r Lab3_solution.zip yourFolder/
+You’re finished with Assignment 3!
